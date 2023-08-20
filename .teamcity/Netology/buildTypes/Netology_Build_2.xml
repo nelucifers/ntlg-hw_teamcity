@@ -19,6 +19,20 @@
           <param name="userSettingsSelection" value="settings.xml" />
         </parameters>
       </runner>
+      <runner id="RUNNER_3" name="New build step" type="Maven2">
+        <conditions>
+          <contains name="teamcity.build.branch" value="main" />
+        </conditions>
+        <parameters>
+          <param name="goals" value="clean deploy" />
+          <param name="localRepoScope" value="agent" />
+          <param name="maven.path" value="%teamcity.tool.maven.DEFAULT%" />
+          <param name="pomLocation" value="pom.xml" />
+          <param name="runnerArgs" value="-Dmaven.test.failure.ignore=true" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="userSettingsSelection" value="settings.xml" />
+        </parameters>
+      </runner>
     </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="Netology_HttpsGithubComNelucifersTeamcityGitRefsHeadsMain" />
