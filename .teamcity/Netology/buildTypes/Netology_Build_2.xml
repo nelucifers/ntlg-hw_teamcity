@@ -19,12 +19,12 @@
           <param name="userSettingsSelection" value="settings.xml" />
         </parameters>
       </runner>
-      <runner id="RUNNER_3" name="New build step" type="Maven2">
+      <runner id="RUNNER_3" name="test" type="Maven2">
         <conditions>
-          <contains name="teamcity.build.branch" value="main" />
+          <does-not-contain name="teamcity.build.branch" value="main" />
         </conditions>
         <parameters>
-          <param name="goals" value="clean deploy" />
+          <param name="goals" value="clean test" />
           <param name="localRepoScope" value="agent" />
           <param name="maven.path" value="%teamcity.tool.maven.DEFAULT%" />
           <param name="pomLocation" value="pom.xml" />
